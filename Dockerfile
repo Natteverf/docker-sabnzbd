@@ -1,12 +1,13 @@
 FROM lsiobase/xenial
 MAINTAINER sparklyballs
+MAINTAINER wetpaint
 
-# environment settings
+# environment settings
 ARG DEBIAN_FRONTEND="noninteractive"
 ENV HOME="/config" \
 PYTHONIOENCODING=utf-8
 
-# install packages
+# install packages
 RUN \
  echo "deb http://ppa.launchpad.net/jcfp/nobetas/ubuntu xenial main" >> /etc/apt/sources.list.d/sabnzbd.list && \
  echo "deb-src http://ppa.launchpad.net/jcfp/nobetas/ubuntu xenial main" >> /etc/apt/sources.list.d/sabnzbd.list && \
@@ -19,19 +20,29 @@ RUN \
 	par2-tbb \
 	python-sabyenc \
 	sabnzbdplus \
+	ffmpeg \
+	git \
 	unrar \
 	unzip && \
 
-# cleanup
+# cleanup
  apt-get clean && \
  rm -rf \
 	/tmp/* \
 	/var/lib/apt/lists/* \
 	/var/tmp/*
+	
+RUN locale-gen en_US.UTF-8
 
-# add local files
+# add local files
 COPY root/ /
+
+ENV LC_ALL C.UTF-8
+ENV LANG C.UTF-8
+ENV LANGUAGE C.UTF-8
+
+RUN dpkg-reconfigure --frontend noninteractive locales
 
 # ports and volumes
 EXPOSE 8080 9090
-VOLUME /config /downloads /incomplete-downloads
+VOLUME /config /downloads /incomplete-downloads /scripts
