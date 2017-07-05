@@ -1,19 +1,11 @@
-[linuxserverurl]: https://linuxserver.io
-[forumurl]: https://forum.linuxserver.io
-[ircurl]: https://www.linuxserver.io/irc/
-[podcasturl]: https://www.linuxserver.io/podcast/
-[appurl]: http://sabnzbd.org/
-[hub]: https://hub.docker.com/r/linuxserver/sabnzbd/
+This is my mnodified version of linuxserver/docker-sabnzbd
 
-[![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)][linuxserverurl]
+It is modified to be able to use NZBtoMedia post processing script.
 
-The [LinuxServer.io][linuxserverurl] team brings you another container release featuring easy user mapping and community support. Find us for support at:
-* [forum.linuxserver.io][forumurl]
-* [IRC][ircurl] on freenode at `#linuxserver.io`
-* [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
-
-# linuxserver/sabnzbd
-[![](https://images.microbadger.com/badges/image/linuxserver/sabnzbd.svg)](http://microbadger.com/images/linuxserver/sabnzbd "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/sabnzbd.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/sabnzbd.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io-hub-built/linuxserver-sabnzbd)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io-hub-built/job/linuxserver-sabnzbd/)
+Additions to the linuxserver version are as follows:
+installed ffmpeg and git
+set environment language to C.UTF-8 to get rid of errors
+added access to scripts folder
 
 SABnzbd makes Usenet as simple and streamlined as possible by automating everything we can. All you have to do is add an .nzb. SABnzbd takes over from there, where it will be automatically downloaded, verified, repaired, extracted and filed away with zero human interaction.
 
@@ -26,22 +18,14 @@ docker create --name=sabnzbd \
 -v <path to data>:/config \
 -v <path to downloads>:/downloads \
 -v <path to incomplete downloads>:/incomplete-downloads \
+-v <path to post processing scripts>:/scripts \
 -e PGID=<gid> -e PUID=<uid> \
 -e TZ=<timezone> \
 -p 8080:8080 -p 9090:9090 \
-linuxserver/sabnzbd
+wetpaint/sabnzbd
+
 ```
 
-## Tags
-
-You can choose ,using a tag, to use the unstable branch.
-Stable is the default and requires no tag
-
-(at times both branches may have the same version, but the stable/latest branch should never contain an alpha/beta/rc version)
-
-Add the tag, if required, to the linuxserver/sabnzbd line of the run/create command in the following format:-
-
-`linuxserver/sabnzbd:unstable`
 
 ## Parameters
 
@@ -56,6 +40,7 @@ http://192.168.x.x:8080 would show you what's running INSIDE the container on po
 * `-v /config` - local path for sabnzbd config files
 * `-v /downloads` local path for finished downloads
 * `-v /incomplete-downloads` local path for incomplete-downloads - *optional*
+* `-v /scripts` local path for post processing scripts
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
 * `-e TZ` for setting timezone information, eg Europe/London
@@ -85,18 +70,3 @@ See here for info on some of the switch settings for sabnzbd http://wiki.sabnzbd
 * To monitor the logs of the container in realtime: `docker logs -f sabnzbd`
 
 
-## Versions
-
-+ **10.04.17:** Bump to 2.0 Release.
-+ **25.02.17:** Switch to nobetas repo for master/latest branch and add unstable branch.
-+ **08.02.17:** Add pythonioenconding=utf8 as env.
-+ **15.09.16:** Compile par2 multicore as per latest info sabnzbd git [readme](https://github.com/sabnzbd/sabnzbd#resolving-dependencies)
-+ **11.09.16:** Bump to release of 1.10
-+ **09.09.16:** Rebase back to xenial,
-issues with alpine version of python and 1.10 branch of sab.
-+ **28.08.16:** Rebase to alpine, using git version of sab.
-+ **17.03.16:** Bump to install 1.0 final at startup
-+ **14.03.16:** Refresh image to pick up latest RC
-+ **23.01.15:** Refresh image.
-+ **14.12.15:** Refresh image to pick up latest beta
-+ **21.08.15:** Intial Release. 
