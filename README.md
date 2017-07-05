@@ -1,10 +1,10 @@
-This is my mnodified version of linuxserver/docker-sabnzbd
+This is my modified version of linuxserver/docker-sabnzbd
 
 It is modified to be able to use NZBtoMedia post processing script.
 
 Additions to the linuxserver version are as follows:
-installed ffmpeg and git
-set environment language to C.UTF-8 to get rid of errors
+installed ffmpeg and git, 
+set environment language to C.UTF-8 to get rid of errors, 
 added access to scripts folder
 
 SABnzbd makes Usenet as simple and streamlined as possible by automating everything we can. All you have to do is add an .nzb. SABnzbd takes over from there, where it will be automatically downloaded, verified, repaired, extracted and filed away with zero human interaction.
