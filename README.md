@@ -2,6 +2,8 @@ This is my modified version of linuxserver/docker-sabnzbd
 
 It is modified to be able to use NZBtoMedia post processing script.
 
+Updated to SABNZBD 2.3.1 and various Xenial patches
+
 Additions to the linuxserver version are as follows:
 installed ffmpeg and git, 
 set environment language to C.UTF-8 to get rid of errors, 
