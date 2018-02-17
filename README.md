@@ -9,8 +9,6 @@ installed ffmpeg and git,
 set environment language to C.UTF-8 to get rid of errors, 
 added access to scripts folder
 
-Updated to SABNZBD 2.3.1 and various Xenial patches
-
 SABnzbd makes Usenet as simple and streamlined as possible by automating everything we can. All you have to do is add an .nzb. SABnzbd takes over from there, where it will be automatically downloaded, verified, repaired, extracted and filed away with zero human interaction.
 
 
