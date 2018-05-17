@@ -1,4 +1,4 @@
-FROM lsiobase/xenial
+FROM lsiobase/ubuntu:xenial
 MAINTAINER sparklyballs
 MAINTAINER wetpaint
 
