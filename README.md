@@ -71,4 +71,4 @@ See here for info on some of the switch settings for sabnzbd http://wiki.sabnzbd
 * To monitor the logs of the container in realtime: `docker logs -f sabnzbd`
 
 
-v05118
+v05118.1
