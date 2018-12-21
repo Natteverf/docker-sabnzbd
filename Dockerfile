@@ -24,7 +24,7 @@ RUN \
 	git \
 	unrar \
 	unzip && \
-apt-get upgrade -y \
+ apt-get upgrade -y  && \
 
 # cleanup
  apt-get clean && \
