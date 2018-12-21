@@ -24,14 +24,13 @@ RUN \
 	git \
 	unrar \
 	unzip && \
-apt-get upgrade -y
+apt-get upgrade -y \
 
 # cleanup
  apt-get clean && \
- rm -rf \
-	/tmp/* \
-	/var/lib/apt/lists/* \
-	/var/tmp/*
+ rm -rf /tmp/* \
+ rm -rf /var/lib/apt/lists/* \
+ rm -rf /var/tmp/*
 	
 RUN locale-gen en_US.UTF-8
 
