@@ -29,8 +29,8 @@ RUN \
 # cleanup
 RUN \
  apt-get clean && \
- rm -rf /tmp/* && \
- 	/var/lib/apt/lists/* && \
+ rm -rf /tmp/* \
+ 	/var/lib/apt/lists/* \
 	/var/tmp/*
 	
 RUN locale-gen en_US.UTF-8
