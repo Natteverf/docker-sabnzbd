@@ -24,9 +24,10 @@ RUN \
 	git \
 	unrar \
 	unzip && \
- apt-get upgrade -y  && \
+ apt-get upgrade -y
 
 # cleanup
+RUN \
  apt-get clean && \
  rm -rf /tmp/* && \
  	/var/lib/apt/lists/* && \
