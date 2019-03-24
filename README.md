@@ -2,7 +2,7 @@ This is my modified version of linuxserver/docker-sabnzbd
 
 It is modified to be able to use NZBtoMedia post processing script.
 
-Updated to SABNZBD 2.3.7
+Updated to SABNZBD 2.3.8
 
 Additions to the linuxserver version are as follows:
 installed ffmpeg and git, 
@@ -71,4 +71,4 @@ See here for info on some of the switch settings for sabnzbd http://wiki.sabnzbd
 * To monitor the logs of the container in realtime: `docker logs -f sabnzbd`
 
 
-v17032019
+v24032019
